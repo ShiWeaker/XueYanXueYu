@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>薛言薛语</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <style>
+        body {
+            max-width: 512px;
+            padding: 2%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        textarea {
+            width: 90%;
+            margin-right: auto;
+            margin-left: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>薛言薛语<small>{{ msg }}</small></h1>
+    <form method="POST">
+        <textarea name="saying" rows="10"></textarea>
+        <br/>
+        <input type="submit" value="提交">
+    </form>
+    <ol id="sayings">
+        {% for s in saying %}
+        <li>{{ s.saying }}</li>
+        {% endfor %}
+    </ol>
+    <br/>
+    <br/>
+    <small>{{ uid }}</small>
+</body>
+</html>
