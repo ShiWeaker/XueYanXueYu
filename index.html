@@ -1,38 +1,61 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <title>薛言薛语</title>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <style>
-        body {
-            max-width: 512px;
-            padding: 2%;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        textarea {
-            width: 90%;
-            margin-right: auto;
-            margin-left: auto;
-        }
-    </style>
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@1.0.1/dist/css/mdui.min.css"
+        integrity="sha384-cLRrMq39HOZdvE0j6yBojO4+1PrHfB7a9l5qLcmRm/fiWXYY+CndJPmyu5FV/9Tw" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/mdui@1.0.1/dist/js/mdui.min.js"
+        integrity="sha384-gCMZcshYKOGRX9r6wbDrvF+TcCCswSHFucUzUPwka+Gr+uHgjlYvkABr95TCOz3A"
+        crossorigin="anonymous"></script>
 </head>
-<body>
-    <h1>薛言薛语<small>{{ msg }}</small></h1>
-    <form method="POST">
-        <textarea name="saying" rows="10"></textarea>
-        <br/>
-        <input type="submit" value="提交">
-    </form>
-    <ol id="sayings">
+
+<body
+    class="mdui-typo mdui-appbar-with-toolbar mdui-theme-primary-indigo mdui-theme-accent-pink mdui-theme-layout-auto mdui-loaded">
+    <div class="mdui-appbar mdui-appbar-fixed">
+        <div class="mdui-toolbar mdui-color-theme">
+            <a href="javascript:;" class="mdui-typo-headline">薛言薛语</a>
+            <div class="mdui-toolbar-spacer"></div>
+            <a href="javascript:;" class="mdui-typo-title">{{ msg }}</a>
+        </div>
+    </div>
+    <div class="mdui-panel mdui-center mdui-p-a-4" mdui-panel>
+        <div class="mdui-panel-item">
+            <div class="mdui-panel-item-header">
+                <div class="mdui-panel-item-title">添加更多</div>
+                <i class="mdui-panel-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+            </div>
+            <div class="mdui-panel-item-body">
+                <form method="POST">
+                    <div class="mdui-textfield mdui-textfield-floating-label">
+                        <label class="mdui-textfield-label">内容</label>
+                        <textarea name="saying" rows="10" class="mdui-textfield-input" maxlength="200" type="text" required></textarea>
+                        <div class="mdui-textfield-error">内容不能为空</div>
+                    </div>
+                    <div class="mdui-panel-item-actions">
+                        <input type="submit" value="提交" class="mdui-btn mdui-ripple">
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <div>
+
+    </div>
+    <ol id="sayings" class="mdui-list mdui-typo mdui-center" style="max-width: 92%;">
         {% for s in saying %}
         <li>{{ s.saying }}</li>
+        <li class="mdui-divider"></li>
         {% endfor %}
     </ol>
-    <br/>
-    <br/>
+    <br />
+    <br />
     <small>{{ uid }}</small>
 </body>
+
 </html>
