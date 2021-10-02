@@ -47,12 +47,11 @@
     <div>
 
     </div>
-    <ul id="sayings" class="mdui-list mdui-typo mdui-center" style="max-width: 92%;">
+    <ol id="sayings" class="mdui-center mdui-typo" style="max-width: 92%;">
         {% for s in saying %}
         <li>{{ s.saying }}</li>
-        <li class="mdui-divider"></li>
         {% endfor %}
-    </ul>
+    </ol>
     <br />
     <br />
     <small>{{ uid }}</small>
